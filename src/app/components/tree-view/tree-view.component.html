@@ -1,0 +1,16 @@
+<ul class="tree">
+    <ng-container *ngFor="let node of nodes">
+        <li>
+            <div class="node" [ngClass]="{'no-arrow': !node?.children?.length}">
+                <span *ngIf="node?.children?.length" class="arrow" (click)="treeService.toggleNode(node.id)">
+                  <i [ngClass]="{ 'arrow-down': treeService.isExpanded(node.id), 'arrow-up': !treeService.isExpanded(node.id) }"></i>
+                </span>
+                <ng-container *ngTemplateOutlet="nodeTemplate; context: getContext(node)">
+                </ng-container>
+            </div>
+            <div class="children" *ngIf="node?.children?.length && treeService.isExpanded(node.id)">
+                <app-tree-view [nodes]="node.children" [nodeTemplate]="nodeTemplate"></app-tree-view>
+            </div>
+        </li>
+    </ng-container>
+</ul>

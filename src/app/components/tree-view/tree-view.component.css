@@ -1,0 +1,34 @@
+.tree {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.node {
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+}
+
+.node.no-arrow {
+    padding-left: 21px;
+}
+
+.deleted {
+    color: grey;
+}
+
+.arrow {
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+i.arrow-down::before {
+    content: '▼';
+}
+i.arrow-up::before {
+    content: '▲';
+}
+
+.children {
+    margin-left: 15px;
+}
